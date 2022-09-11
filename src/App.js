@@ -3,6 +3,7 @@ import Header from './components/Header.jsx'
 import Formulario from './components/Formulario.jsx'
 import styled from '@emotion/styled';
 import Resumen from './components/Resumen.jsx'
+import Resultado from './components/Resultado.jsx'
 
 const Contenedor = styled.div`
 
@@ -32,7 +33,7 @@ function App() {
   // const { datos } = resumen; del ejemplo de la opcion 1
   
   //Extraer datos (opcion 2)
-  const { datos } = resumen; //Extrae solo la parte del objeto
+  const { datos, cotizacion } = resumen; //Extrae solo la parte del objeto
 
   return (
     <Contenedor>
@@ -49,6 +50,16 @@ function App() {
       <Resumen datos={datos} />
       {/* Opcion para mostrar Resumen */}
       {/* {datos ? (<Resumen />) : null} */}
+
+      <Resultado 
+
+        cotizacion = {cotizacion}
+
+
+      />
+
+
+
       </ContenedorFormulario>
 
     </Contenedor>
