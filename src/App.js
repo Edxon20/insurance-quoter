@@ -4,6 +4,7 @@ import Formulario from './components/Formulario.jsx'
 import styled from '@emotion/styled';
 import Resumen from './components/Resumen.jsx'
 import Resultado from './components/Resultado.jsx'
+import Spinner from './components/Spinner.jsx'
 
 const Contenedor = styled.div`
 
@@ -31,6 +32,8 @@ function App() {
     }
   });
   // const { datos } = resumen; del ejemplo de la opcion 1
+
+  const [cargando, guardarCargando] =useState(false);
   
   //Extraer datos (opcion 2)
   const { datos, cotizacion } = resumen; //Extrae solo la parte del objeto
@@ -45,7 +48,11 @@ function App() {
       
       <Formulario 
         guardarResumen={guardarResumen}
+        guardarCargando={guardarCargando}
       />
+
+      {cargando ?<Spinner  /> : null}
+      
 
       <Resumen datos={datos} />
       {/* Opcion para mostrar Resumen */}
@@ -57,6 +64,8 @@ function App() {
 
 
       />
+
+      
 
 
 
