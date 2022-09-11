@@ -1,16 +1,16 @@
 import react,{useState} from 'react';
 import styled from '@emotion/styled';
+import {obtenerDiferenciaYear,calcularMarca,obtenerPlan} from '../Helper';
 
 const Campo = styled.div`
 
     display:flex;
     margin-bottom: 1rem;
     align-items: center;
-`
+`;
 const Label = styled.label`
     flex: 0 0 100px;
 `;
-
 const Select = styled.select`
 
     display:block;
@@ -19,13 +19,11 @@ const Select = styled.select`
     border: 1px solid #04deff;
     -webkit-appearance: none;
 `;
-
 const InputRadio = styled.input`
 
     margin : 0 1rem;
 
 `;
-
 const Button =   styled.button`
 
     background-color: #00838F;
@@ -45,7 +43,6 @@ const Button =   styled.button`
     }
 
 `;
-
 const Error = styled.div`
 
     background-color: red;
@@ -55,7 +52,7 @@ const Error = styled.div`
     width: 100%;
     margin-bottom: 2rem;
 
-`
+`;
 
 const Formulario = () =>{
 
@@ -96,20 +93,31 @@ const Formulario = () =>{
 
         setError(false);
 
-        //Obtener la diferente 
+        // Una base de 2000
+        let resultado = 2000;
 
-
-        //Por cada año hay que restar un 3% del valor 
-
+        //Obtener la diferencia de año
         
+        const diferencia = obtenerDiferenciaYear(year);
+        
+        //Disminuye
+        //Por cada año hay que restar un 3% del valor 
+        resultado-= ((resultado*0.03) *diferencia); 
+
+        //Aumenta
         // Americano 15%
-
         //Asiatico 5%
-
         // Europeo 30%
+        resultado *= calcularMarca(marca);
+
+        //Basico aumenta 20%
+        //Amplio 50%
+        resultado = parseFloat(resultado * obtenerPlan(plan)).toFixed(2);
+       alert(resultado);
+
+        // Total
+
     }
-
-
 
     return (
 
