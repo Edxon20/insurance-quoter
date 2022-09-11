@@ -1,5 +1,6 @@
 import react,{Fragment} from 'react';
 import styled from '@emotion/styled';
+import {primerMayus} from '../Helper'
 
 const ContenedorResumen = styled.div`
 
@@ -21,12 +22,11 @@ const Resumen = ({datos}) => {
         <ContenedorResumen>
         <h2>Resumen de Cotizacion</h2>
         <ul>
-            <li>Marca: {marca}</li>
-             <li>Plan: {plan}</li>
-             <li>Año del auto: {year}</li>
+            <li>Marca: {primerMayus(marca)}</li>
+             <li>Plan: {primerMayus(plan)}</li>
+             <li>Año del auto: {primerMayus(year)}</li>
         </ul>
         </ContenedorResumen>
-
     );
 }
 

@@ -5,7 +5,7 @@ export function obtenerDiferenciaYear(year){
 
 //Calcula el total a pagar segun la marca:
 export function calcularMarca(marca){
-    
+
     let incremento;
     switch(marca){
 
@@ -27,4 +27,14 @@ export function calcularMarca(marca){
 //Calcula el tipo de seguro 
 export function obtenerPlan(plan){
     return (plan==='basico') ? 1.20 : 1.50;
+}
+
+
+//Muestra la primer letra mayuscula
+
+export function primerMayus(texto){
+
+    return texto.charAt(0).toUpperCase() + texto.slice(1);
+    //El slice sera a partir de la segunda letra
+
 }
